@@ -10,8 +10,8 @@ My first implementation was based on an article "A Neural Algorithm of Artistic 
 I took a code from  Francois Chollet's book 'Deep Learning with Python' and adapted for Google Collab.<br>
 It workes pretty well, but it takes about 2 hours to get one image.
 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_standart_lbfgs/dogs.jpg" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_standart_lbfgs/night.jpg" width = "250" /> 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_standart_lbfgs/epochs_resultsresult_at_iteration_999.png" width = "250" />
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img/dogs.jpg" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img/night.jpg" width = "250" /> 
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img/Result%20(iteration_999).png" width = "250" />
 
 
 **Step 2: Setting up autoencoder from "Perceptual Losses for Real-Time Style Transfer and Super-Resolution"**<br>
@@ -24,3 +24,12 @@ It works, and in the process of creating it, I thought why not use it separately
 So, the plan was simple: generate some style transfer examples from first step algorythm and train autoencoder on them with data augmentation.
 
 **Step 3: Naive fast style transfer based on autoencoder**
+
+Original input/output size of autoencoder was 256x256, but I changed it on 512x512 for better picture quality. I prepared 15 pairs of pictures and train my autoencoder with data augmentation.<br>
+Examples:<br>
+
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_images/dummy_folder/red_bridge.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_images/dummy_folder/bridge.jpg" width = "250" /> 
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_images/dummy_folder/branches.jpg" width = "250" />
+
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/red_bridge.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/bridge.jpg" width = "250" /> 
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/branches.jpg" width = "250" />
