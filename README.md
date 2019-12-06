@@ -25,8 +25,19 @@ So, the plan was simple: generate some style transfer examples from first step a
 
 **Step 3: Naive fast style transfer based on the autoencoder**
 
-Original input/output size of autoencoder was 256x256, but I changed it on 512x512 for better picture quality. I prepared 15 pairs of pictures and train my autoencoder with data augmentation.<br>
-Examples:<br>
+Original input/output size of autoencoder was 256x256, but I changed it on 512x512 for better picture quality. I prepared 15 pairs of images and trained my autoencoder with data augmentation. Train dataset was created by generator, based on the algorythm from the step 1<br>
+
+Train examples:<br>
+
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/original_images/dummy_folder/bridge.jpg" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/original_images/dummy_folder/castle.jpg" width = "250" /> 
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/original_images/dummy_folder/sea.jpg" width = "250" />
+
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/generated_results/dummy_folder/bridge_gen.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/generated_results/dummy_folder/castle_gen.png" width = "250" /> 
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/generated_results/dummy_folder/sea_gen.png" width = "250" />
+
+
+
+Test examples:<br>
 
 <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_images/dummy_folder/red_bridge.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_images/dummy_folder/bridge.jpg" width = "250" /> 
 <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_images/dummy_folder/branches.jpg" width = "250" />
