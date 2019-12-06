@@ -3,7 +3,7 @@
 This project is my attempt to solve the problem of quick style transfer by myself. While creating it, I moved step by step, gradually studying new papers. <br>
 Jupyter notebooks for each step you can find in the [research_notebooks](https://github.com/Gooogr/Keras_Fast_Style_Transfer/tree/master/research_notebooks) folder
 
-**Step 1: simple algorytm based on original paper "A Neural Algorithm of Artistic Style"**<br>
+**Step 1: Simple algorytm based on original paper "A Neural Algorithm of Artistic Style"**<br>
 * Original article: ["A Neural Algorithm of Artistic Style"](https://arxiv.org/abs/1508.06576)
 
 My first implementation was based on an article "A Neural Algorithm of Artistic Style".
@@ -23,7 +23,7 @@ The approach described in the article turned out to be rather complicated, that'
 It works, and in the process of creating it, I thought why not use it separately, without using any specific perpixel or perceptual losses.<br>
 So, the plan was simple: generate some style transfer examples from first step algorythm and train autoencoder on them with data augmentation.
 
-**Step 3: Naive fast style transfer based on autoencoder**
+**Step 3: Naive fast style transfer based on the autoencoder**
 
 Original input/output size of autoencoder was 256x256, but I changed it on 512x512 for better picture quality. I prepared 15 pairs of pictures and train my autoencoder with data augmentation.<br>
 Examples:<br>
@@ -33,3 +33,5 @@ Examples:<br>
 
 <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/red_bridge.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/bridge.jpg" width = "250" /> 
 <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/branches.jpg" width = "250" />
+
+**Step 4:  Implementation of Perceptual Losses for Real-Time Style Transfer and Super-Resolution**
