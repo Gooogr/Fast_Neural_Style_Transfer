@@ -45,4 +45,6 @@ Test examples:<br>
 <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/red_bridge.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/bridge.jpg" width = "250" /> 
 <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/branches.jpg" width = "250" />
 
+Model was trained for 20 epochs per 500 iterations in the each. 
+
 **Step 4:  Implementation of Perceptual Losses for Real-Time Style Transfer and Super-Resolution**
