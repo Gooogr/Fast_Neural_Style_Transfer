@@ -23,7 +23,7 @@ The approach described in the article turned out to be rather complicated, that'
 It works, and in the process of creating it, I thought why not use it separately, without using any specific per-pixel or perceptual losses.<br>
 So, the plan was simple: generate some style transfer examples from the first step algorithm and train autoencoder on them with data augmentation.
 
-**Step 3: Naive fast style transfer based on the autoencoder**
+**Step 3-4: Naive fast style transfer based on the autoencoder**
 
 The original input/output size of the autoencoder was 256x256, but I changed it on 512x512 for better picture quality. I prepared 15 pairs of images and trained my autoencoder with data augmentation. Train dataset was created by generator, based on the algorithm from the step 1<br>
 
