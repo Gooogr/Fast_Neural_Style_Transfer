@@ -47,4 +47,4 @@ Test examples:<br>
 
 Model was trained for 20 epochs per 500 iterations in the each. 
 
-**Step 4:  Implementation of Perceptual Losses for Real-Time Style Transfer and Super-Resolution**
+**Step 5:  Implementation of Perceptual Losses for Real-Time Style Transfer and Super-Resolution**
