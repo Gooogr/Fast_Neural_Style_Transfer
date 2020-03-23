@@ -48,3 +48,10 @@ Test examples:<br>
 Model was trained for 20 epochs per 500 iterations in the each. 
 
 **Step 5:  Implementation of Perceptual Losses for Real-Time Style Transfer and Super-Resolution**
+
+| | | | |
+|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
+|  |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/bridge.jpg">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/dear.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/red_bridge.png">|
+| <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/night.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/bridge_n.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/dear_n.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/red_bridge_n.png">|
+| <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/draft.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/bridge_d.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/dear_d.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/red_bridge_d.png">|
+| <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/kandinskiy.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/bridge_k.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/dear_k.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/red_bridge_k.png">|
