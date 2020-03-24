@@ -10,8 +10,8 @@ My first implementation was based on the article "A Neural Algorithm of Artistic
 I took code from  Francois Chollet's book 'Deep Learning with Python' and adapted for Google Collab.<br>
 It workes pretty well, but it takes about 2 hours to get one image.
 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img/dogs.jpg" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img/night.jpg" width = "250" /> 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img/Result%20(iteration_999).png" width = "250" />
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img/dogs.jpg" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img/night.jpg" width = "250" /> 
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img/Result%20(iteration_999).png" width = "250" />
 
 
 **Step 2: Setting up autoencoder from "Perceptual Losses for Real-Time Style Transfer and Super-Resolution"**<br>
@@ -29,21 +29,20 @@ The original input/output size of the autoencoder was 256x256, but I changed it 
 
 Train examples:<br>
 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/original_images/dummy_folder/bridge.jpg" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/original_images/dummy_folder/castle.jpg" width = "250" /> 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/original_images/dummy_folder/sea.jpg" width = "250" />
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/original_images/dummy_folder/bridge.jpg" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/original_images/dummy_folder/castle.jpg" width = "250" /> 
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/original_images/dummy_folder/sea.jpg" width = "250" />
 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/generated_results/dummy_folder/bridge_gen.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/generated_results/dummy_folder/castle_gen.png" width = "250" /> 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/generated_results/dummy_folder/sea_gen.png" width = "250" />
-
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/generated_results/dummy_folder/bridge_gen.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/generated_results/dummy_folder/castle_gen.png" width = "250" /> 
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/generated_results/dummy_folder/sea_gen.png" width = "250" />
 
 
 Test examples:<br>
 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_images/dummy_folder/red_bridge.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_images/dummy_folder/bridge.jpg" width = "250" /> 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_images/dummy_folder/branches.jpg" width = "250" />
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/test_images/dummy_folder/red_bridge.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/test_images/dummy_folder/bridge.jpg" width = "250" /> 
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/test_images/dummy_folder/branches.jpg" width = "250" />
 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/red_bridge.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/bridge.jpg" width = "250" /> 
-<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_encoders_pairs/test_results/branches.jpg" width = "250" />
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/test_results/red_bridge.png" width = "250" /> <img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/test_results/bridge.jpg" width = "250" /> 
+<img src = "https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_encoders_pairs/test_results/branches.jpg" width = "250" />
 
 Model was trained for 20 epochs per 500 iterations in the each. 
 
@@ -51,9 +50,9 @@ Model was trained for 20 epochs per 500 iterations in the each.
 
 | | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-|  |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/bridge.jpg">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/dear.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/red_bridge.png">|
-| <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/night.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/bridge_n.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/dear_n.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/red_bridge_n.png">|
-| <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/draft.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/bridge_d.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/dear_d.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/red_bridge_d.png">|
-| <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/kandinskiy.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/bridge_k.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/dear_k.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/img_fst_results/red_bridge_k.png">|
+|  |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/bridge.jpg">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/dear.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/red_bridge.png">|
+| <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/night.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/bridge_n.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/dear_n.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/red_bridge_n.png">|
+| <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/draft.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/bridge_d.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/dear_d.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/red_bridge_d.png">|
+| <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/kandinskiy.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/bridge_k.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/dear_k.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/red_bridge_k.png">|
 
 .
