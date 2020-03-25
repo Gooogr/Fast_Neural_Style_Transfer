@@ -243,5 +243,3 @@ def print_test_info(verbose_result):
   print('Content loss: {}'.format(loss_list[0]))
   print('Style loss_1: {}, Style loss_2: {}, \nStyle loss_3: {}, Style loss_4: {}'.format(loss_list[1], loss_list[2], loss_list[3], loss_list[4]))
   print('Total variation loss: {}'.format(loss_list[5]))
- 
-# ~ print('test')

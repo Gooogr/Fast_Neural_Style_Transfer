@@ -1,5 +1,5 @@
 from keras.layers import Input, Conv2D, Conv2DTranspose, Activation,\
-                         ReLU, MaxPooling2D, BatchNormalization
+                         MaxPooling2D, BatchNormalization
 from keras import layers
 
 def residual_block(y, _nb_channels = 128, _strides = (1, 1), name_number = 1):
@@ -10,7 +10,8 @@ def residual_block(y, _nb_channels = 128, _strides = (1, 1), name_number = 1):
              strides = _strides, padding = 'same', 
              name = 're_conv1_{}'.format(name_number))(y)
   y = BatchNormalization(name = 're_batch1_{}'.format(name_number))(y)
-  y = ReLU(name = 're_relu1_{}'.format(name_number))(y)
+  # ~ y = ReLU(name = 're_relu1_{}'.format(name_number))(y)
+  y = Activation('relu')(y)
 
   y = Conv2D(filters = _nb_channels, kernel_size = (3, 3), 
              strides = _strides, padding = 'same',
@@ -19,7 +20,8 @@ def residual_block(y, _nb_channels = 128, _strides = (1, 1), name_number = 1):
 
   #adding shortcut
   y = layers.add([shortcut, y])
-  y = ReLU(name = 're_relu2_{}'.format(name_number))(y)
+  # ~ y = ReLU(name = 're_relu2_{}'.format(name_number))(y)
+  y = Activation('relu')(y)
 
   return y
   
@@ -36,3 +38,5 @@ class OutputScale(layers.Layer):
 
     def compute_output_shape(self, input_shape):
         return input_shape
+
+print('file compiled!')
