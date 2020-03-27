@@ -5,7 +5,7 @@
 	"batch_size" : 4,
 	"steps_per_epoch" : 10000,
 	"epochs" : 2,
-	"earning_rate":1e-3,
+	"learning_rate":1e-3,
 	"verbose_iter" : 250,
 	"content_w" : 2500,  
 	"style_w1" : 0.1,

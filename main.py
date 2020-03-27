@@ -4,15 +4,22 @@ from model_functions import train, predict
 
 # Idea source: https://docs.python.org/2/library/argparse.html#sub-commands
 
+
+
 # sub-command functions
 def start_train(args):
 	with open(args.config_path) as f:
-		options_dict = json.load(f)
+		options = json.load(f)
 		f.close()
-	print(options_dict)
+	# ~ print(options_dict)
+	train(options)
 	
 def start_predict(args):
-	print(args)
+	# ~ print(args)
+	options = {'img_path':args.image_path,
+				'weights_path':args.weights_path,
+				'result_dir':args.result_image_dir}
+	predict(options)
 	
 # create the top-level parser
 parser = argparse.ArgumentParser()
@@ -43,6 +50,4 @@ parser_predict.set_defaults(func = start_predict)
 	
 if __name__ == '__main__':
 	args = parser.parse_args()
-	args.func(args)
-	
-		
+	args.func(args)	
