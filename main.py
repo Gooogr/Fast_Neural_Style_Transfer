@@ -2,65 +2,47 @@ import argparse
 import json
 from model_functions import train, predict
 
-### TEMP FUNCTIONS ###
+# Idea source: https://docs.python.org/2/library/argparse.html#sub-commands
 
-options = None
+# sub-command functions
+def start_train(args):
+	with open(args.config_path) as f:
+		options_dict = json.load(f)
+		f.close()
+	print(options_dict)
+	
+def start_predict(args):
+	print(args)
+	
+# create the top-level parser
+parser = argparse.ArgumentParser()
+subparsers = parser.add_subparsers(help = 'Choose mode: train or predict')
+subparsers.required = True
 
-def train(options):
-	print('Train!')
-	
-def predict():
-	print('Predict!')
-	
-### TEMP FUNCTIONS END ###
-	
-def readDict(filename, sep):
-	'''
-	https://stackoverflow.com/questions/11026959/writing-a-dict-to-txt-file-and-reading-it-back
-	'''
-	 with open(filename, "r") as f:
-        dict = {}
-        for line in f:
-            values = line.split(sep)
-            dict[values[0]] = {int(x) for x in values[1:len(values)]}
-        return(dict)
-        
-def create_main_parser():
-	parser = argparse.ArgumentParser(description = 'Setting up script mode')
-	parser.add_argument('mode', action = 'store', choices=['train', 'predict'], 
-						help = 'What do you want? Train or predict?')
-	return parser
-	
-def create_predict_parser():
-	parser = argparse.ArgumentParser(description = 'Setting up file pathes')
-	parser.add_argument('-w', action = 'store', dest = 'image_path',
-						type = str, required = False, help = 'Path to the content image')
-	parser.add_argument('-i', action = 'store', dest = 'image_path',
-						type = str, required = True, help = 'Path to the content image')
-	parser.add_argument('-d', action = 'store', dest = 'result_image_dir',
-						type = str, required = True, help = 'Directory for saving the result image')
-	
-def create_train_parser():
-	parser = argparse.ArgumentParser(description = 'Setting up file pathes')
-	parser.add_argument('-c', action = 'store', dest = 'config_path', 
-						type = str, required = False, help = 'Path to the configuration json file')
-	
-	return parser
+#create sub-parser for train function
+parser_train = subparsers.add_parser('train')
+parser_train.add_argument('--conf', action = 'store', type = str, 
+						  dest = 'config_path', default = 'config.json',
+						  help = 'Path to the config.json file')
+parser_train.set_defaults(func = start_train)
+
+#create sub-parser for predict function
+parser_predict = subparsers.add_parser('predict')
+parser_predict.add_argument('-w', action = 'store', type = str,
+							dest = 'weights_path', 
+							help = 'Path to pre-trained weights',
+							required = True)
+parser_predict.add_argument('-i', action = 'store', type = str, 
+							dest = 'image_path',
+							help = 'Path to the content image',
+							required = True)
+parser_predict.add_argument('-r', action = 'store', type = str,
+							dest = 'result_image_dir', default = '',
+							help = 'Directory for saving the result image')
+parser_predict.set_defaults(func = start_predict)
 	
 if __name__ == '__main__':
-	main_parser = create_mian_parser()
-	main_args = main_parser.parse_args()
-	if main_args.mode == 'train':
-		parser = create_train_parser()
-		args = parser.parse_args()
-		with open(args.config_path) as f:
-			options_dict = json.load(f)
-			f.close()
-		train(options_dict)
-	else:
-		parser = create_predict_parser()
-		args = parser.parse_args()
-		
-		# Put args to functions
-		predict()
+	args = parser.parse_args()
+	args.func(args)
+	
 		
