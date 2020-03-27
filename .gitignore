@@ -1,0 +1,15 @@
+# Created by https://www.gitignore.io/api/python
+# Edit at https://www.gitignore.io/?templates=python
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+img/
+dataset/
+
+
+# End of https://www.gitignore.io/api/python
