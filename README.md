@@ -1,7 +1,7 @@
 
-### Fast Neural Style Transfer project
+## Fast Neural Style Transfer project
 This project is my attempt to solve the problem of quick style transfer by myself. While creating it, I moved step by step, gradually studying new papers. <br>
-Jupyter notebooks for each step you can find in the [research_notebooks](https://github.com/Gooogr/Keras_Fast_Style_Transfer/tree/master/research_notebooks) folder
+Jupyter notebooks for each step you can find in the [research_notebook](https://github.com/Gooogr/Keras_Fast_Style_Transfer/tree/master/research_notebooks) page.
 
 | | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
@@ -10,4 +10,13 @@ Jupyter notebooks for each step you can find in the [research_notebooks](https:/
 | <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/draft.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/bridge_d.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/dear_d.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/red_bridge_d.png">|
 | <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/kandinskiy.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/bridge_k.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/dear_k.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/red_bridge_k.png">|
 
+### Environment (main packages):
+* Keras==2.1.2
+* opencv-python==4.2.0.32
+* Pillow==7.0.0
+* tensorboard==1.14.0
+* tensorflow==1.5.0
+* tensorflow-estimator==1.14.0
+* tensorflow-tensorboard==1.5.1
 
+### How to use it
