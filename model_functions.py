@@ -2,8 +2,11 @@ from model_zoo import get_training_model, get_pred_model
 from utilities import *
 from keras.applications import vgg16
 from keras import optimizers
+from keras.preprocessing.image import ImageDataGenerator
 import cv2
 import os
+import time
+import datetime
 
 
 def train(options):
@@ -12,6 +15,10 @@ def train(options):
 	batch_size = options['batch_size']
 	
 	learning_rate = options['learning_rate']
+	steps_per_epoch = options['steps_per_epoch']
+	epochs = options['epochs']
+	batch_size = options['batch_size']
+	verbose_iter = options['verbose_iter']
 	
 	content_w = options['content_w'] 
 	style_w1 = options['style_w1'] 
@@ -23,9 +30,13 @@ def train(options):
 	
 	style_img_path = options['style_img_path']
 	test_content_img_path = options['test_content_img_path']
-	
+	model_saving_path = options['model_saving_path']
+	train_dataset_path = options['train_dataset_path']
+	 
 	style_layers = options['style_layers']
 	content_layer = options['content_layer']
+	
+	net_name = options['net_name']
 	
 	# Build model
 	model = get_training_model(height, width, batch_size)
@@ -66,7 +77,74 @@ def train(options):
 	content_test_activation = expand_batch_input(batch_size, content_function([content_test_tensor])[0])
 	content_test = expand_batch_input(batch_size, content_test_tensor)
 	
-	# ADD HERE TRAIN LOOP AND MODEL SAVING!
+	# Training loop
+	datagen = ImageDataGenerator()
+	dummy_input = expand_batch_input(batch_size, np.array([0.0]))
+	start_time = time.time()
+	summ_time = 0
+
+	for ep in range(epochs):
+		print('Epoch: ', ep)
+		iters = 0
+
+		for x in datagen.flow_from_directory(train_dataset_path, 
+										  class_mode = None, 
+										  batch_size = batch_size, 
+										  target_size = (height, width)):
+			t1 = time.time()
+			x = vgg16.preprocess_input(x)
+			content_act = content_function([x])[0]
+			history = model.fit([x, content_act, style_act[0], style_act[1], 
+								 style_act[2], style_act[3]], 
+								[dummy_input, dummy_input, dummy_input, dummy_input,
+								 dummy_input, dummy_input, x], 
+								epochs = 1, verbose = 0, batch_size = batch_size) #verbose = 0, we will print info manually
+			t2 = time.time()
+			summ_time += t2 - t1
+			iters += 1
+
+			if iters % verbose_iter == 0:
+				# predict and save image on current iteration
+				verbose_result = model.predict([content_test, content_test_activation, style_act[0], style_act[1], 
+								 style_act[2], style_act[3]])
+				verbose_image = deprocess_img(verbose_result[6][0], width, height)
+				cv2.imwrite(os.path.join(test_content_imgs_save_path, '{}_{}_{}_test_img.jpg'.format(net_name, iters, ep)), verbose_image)
+
+				# print loop info
+				print()
+				print('Current iteration: ', iters)
+				loss = history.history['loss']
+				try:
+					improvement = (prev_loss - loss) / prev_loss * 100
+					prev_loss = loss
+					print('Improvement: {}%'.format(improvement))
+				except:
+					prev_loss = loss
+				epoch_est_time = (summ_time / verbose_iter) * (steps_per_epoch - iters)  # estimted time until epoch`s end
+				complete_est_time = start_time + (summ_time / verbose_iter) * steps_per_epoch * epochs # estimated time of training complition
+				print('Expected time before the end of the epoch: ', 
+					str(datetime.timedelta(seconds = epoch_est_time)))
+				print_test_info(verbose_result) 
+				print()
+				print_training_loss(history)
+				summ_time = 0
+
+			if iters > steps_per_epoch:
+				break
+	print('Training process is over. Saving weights...')			
+	# Saving weights after training
+	# Create autonencoder model without frozen layers from VGG-16
+	pred_model = get_pred_model(height, width)
+	
+	# Fill pred_model by trained weights
+	training_model_layers = {layer.name: layer for layer in model.layers}
+	for layer in pred_model.layers:
+		if layer.name in training_model_layers.keys():
+			layer.set_weights(training_model_layers[layer.name].get_weights())
+
+	pred_model.save_weights(os.path.join(model_saving_path, 'fst_{}_weights.h5'.format(net_name)))
+	print('Weights was saved!')
+	
 	
 		 
 def predict(options):
