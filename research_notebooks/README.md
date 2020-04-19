@@ -1,7 +1,5 @@
 
-### Fast Neural Style Transfer project
-This project is my attempt to solve the problem of quick style transfer by myself. While creating it, I moved step by step, gradually studying new papers. <br>
-Jupyter notebooks for each step you can find in the [research_notebooks](https://github.com/Gooogr/Keras_Fast_Style_Transfer/tree/master/research_notebooks) folder
+### Fast Neural Style Transfer project: reserach notebooks
 
 **Step 1: Simple algorithm based on original paper "A Neural Algorithm of Artistic Style"**<br>
 * Original article: ["A Neural Algorithm of Artistic Style"](https://arxiv.org/abs/1508.06576)
