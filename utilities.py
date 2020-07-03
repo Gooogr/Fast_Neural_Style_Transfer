@@ -82,21 +82,25 @@ def zero_loss(y_true, y_pred):
   
 ### Image processing/deprocessing ###
 
-def preprocess_img(img_path, img_height, img_width, resize_img = True):
+def preprocess_img(img_file, img_height, img_width, resize_img = True):
   ''' 
   Convert raw image to [1, img_width, imh_height, 3] image prepared to VGG16
+  img_file could be:
+   file path - is used when running from terminal
+   PIL image - is used when running  under Streamlit web app
   '''
-  if resize_img:
-    img = load_img(img_path, target_size = (img_height, img_width))
-  else:
-     img = load_img(img_path)
-  img = img_to_array(img)
+  if isinstance(img_file, str):
+    if resize_img:
+      img_file = load_img(img_file, target_size = (img_height, img_width))
+    else:
+      img_file = load_img(img_file)
+  img = img_to_array(img_file)
   img = np.expand_dims(img, axis = 0)
   img = vgg16.preprocess_input(img)
   return img
 
 
-def deprocess_img(x, height, width): # Was copied from training part
+def deprocess_img(x, height, width): 
   '''
   Deprocess  model output into image. Image compatible with OpenCV.
   Input:
