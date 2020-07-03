@@ -91,9 +91,9 @@ def preprocess_img(img_file, img_height, img_width, resize_img = True):
   '''
   if isinstance(img_file, str):
     if resize_img:
-      img = load_img(img_file, target_size = (img_height, img_width))
+      img_file = load_img(img_file, target_size = (img_height, img_width))
     else:
-      img = load_img(img_file)
+      img_file = load_img(img_file)
   img = img_to_array(img_file)
   img = np.expand_dims(img, axis = 0)
   img = vgg16.preprocess_input(img)
