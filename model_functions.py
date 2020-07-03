@@ -145,14 +145,13 @@ def train(options):
 	pred_model.save_weights(os.path.join(model_saving_path, 'fst_{}_weights.h5'.format(net_name)))
 	print('Weights was saved!')
 	
-	
 		 
-def predict(options):
-	img_path = options['img_path']
+def predict(options, write_result=True):
+	img_file = options['img_path'] # It could also store PIL image, not only string with file path 
 	weights_path = options['weights_path']
 	result_dir = options['result_dir']
 	
-	img = preprocess_img(img_path, img_height = None, img_width = None, resize_img = False) 
+	img = preprocess_img(img_file, img_height = None, img_width = None, resize_img = False) 
 	original_img_height = img.shape[1]
 	original_img_width = img.shape[2]
 
@@ -174,5 +173,10 @@ def predict(options):
 	result_img = remove_padding(result_img, original_img_height, original_img_width, paddings)
 	print('Shape after unpadding', result_img.shape)
 	
-	cv2.imwrite(os.path.join(result_dir, 'result.png'), result_img)
-	# ~ cv2_imshow(result_img)
+	if write_result:
+		cv2.imwrite(os.path.join(result_dir, 'result.png'), result_img)
+	else:
+		return result_img
+		
+	
+	

@@ -4,8 +4,6 @@ from model_functions import train, predict
 
 # Idea source: https://docs.python.org/2/library/argparse.html#sub-commands
 
-
-
 # sub-command functions
 def start_train(args):
 	with open(args.config_path) as f:
