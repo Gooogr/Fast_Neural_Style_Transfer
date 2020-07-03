@@ -54,7 +54,7 @@ options['result_dir'] = None
 # Predict and display result
 predicted_img = predict(options, write_result=False)
 st.write("Result image")
-st.image(predicted_img[:, :, ::-1])
+st.image(predicted_img[:, :, ::-1], width=600)
 
 
 # Download results
