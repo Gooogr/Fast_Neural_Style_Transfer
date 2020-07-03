@@ -75,3 +75,10 @@ project
 
 ### Perfomance
 It takes about 10 hours to train a network on a Nvidia K80 GPU (Google Collab).
+
+### Web app
+I have also added simple web app with Streamlit. You can upload your content image and select one of three style images. <br>
+For running locally:<br>
+```
+streamlit run streamlit_app.py
+```
