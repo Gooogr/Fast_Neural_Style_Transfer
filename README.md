@@ -18,12 +18,11 @@ and Super-Resolution: Supplementary Material"](https://cs.stanford.edu/people/jc
 | <img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/kandinskiy.jpg"> |<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/bridge_k.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/dear_k.png">|<img width="1604" src="https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/img_fst_results/red_bridge_k.png">|
 
 ### Environment (main packages):
+* Python==3.6
 * Keras==2.2.5
 * opencv-python==4.1.2.30
 * Pillow==7.0.0
-* tensorboard==1.15.0
-* tensorflow==1.5.2
-* tensorflow-estimator==1.15.1
+* tensorflow==1.15.2
 
 ### How to use it
 There  are two ways to use this neural network. You can train or predict in [this](https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/5.2\)%20Fast%20Style%20Transfer.ipynb) google collab file or use a python script.
