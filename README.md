@@ -21,8 +21,9 @@ and Super-Resolution: Supplementary Material"](https://cs.stanford.edu/people/jc
 * Python==3.6
 * Keras==2.2.5
 * opencv-python==4.1.2.30
-* Pillow==7.0.0
+* Pillow
 * tensorflow==1.15.2
+* streamlit
 
 ### How to use it
 There  are two ways to use this neural network. You can train or predict in [this](https://github.com/Gooogr/Keras_Fast_Style_Transfer/blob/master/research_notebooks/5.2\)%20Fast%20Style%20Transfer.ipynb) google collab file or use a python script.
