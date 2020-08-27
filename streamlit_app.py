@@ -68,10 +68,10 @@ def get_image_download_link(img):
 	buffered = BytesIO()
 	img.save(buffered, format="JPEG")
 	img_str = base64.b64encode(buffered.getvalue()).decode()
-	href = f'<a href="data:file/jpg;base64,{img_str}">Download result</a>'
+	# ~ href = f'<a href="data:file/jpg;base64,{img_str}">Download result</a>'
 	return href
 
-st.markdown(get_image_download_link(result), unsafe_allow_html=True)
+# ~ st.markdown(get_image_download_link(result), unsafe_allow_html=True)
 
 
 
