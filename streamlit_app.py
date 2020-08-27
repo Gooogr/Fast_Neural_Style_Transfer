@@ -6,7 +6,7 @@ import base64
 from io import BytesIO
 from model_functions import predict
 
-
+# Constants
 DEMO_IMG = './streamlit_imgs/demo.jpg'
 
 VAN_GOGH_WEIGHT = './saved_weights/fst_night_512_weights.h5'
@@ -18,6 +18,9 @@ KANDINSKIY_IMG = './streamlit_imgs/kandinskiy.jpg'
 SKETCH_WEIGHT = './saved_weights/fst_draft_512_weights.h5'
 SKETCH_IMG = './streamlit_imgs/draft.jpg'
 
+SCALED_CONTENT_IMG_WIDTH = 400
+
+# Set site title
 st.title("Fast Neural Style Tranfer")
 
 # Get content image from file_uploader
@@ -27,9 +30,11 @@ if img_file_buffer is not None:
 else:
 	content_image = np.array(Image.open(DEMO_IMG))
 	
-print(content_image.shape)
+print('---Image shapes---')	
+print('Content image shape:', content_image.shape)
+print()
 
-# Select model weights
+# Select model weights and style image
 style_name = st.sidebar.selectbox("Select style image", ("Van Gogh", 
 														 "Wassily Kandinsky", 
 														 "Sketching"))
@@ -40,10 +45,24 @@ style_dict['Sketching'] = SKETCH_WEIGHT, SKETCH_IMG
 
 weights_path, style_img_path = style_dict[style_name]
 
+# Scale style and content images. 
+# I want to allign them by height, so width parameter in st.image set to None
+content_scale = SCALED_CONTENT_IMG_WIDTH / content_image.shape[1]
+content_scaled_height = int(content_image.shape[0] * content_scale)
+content_image = cv2.resize(content_image, 
+				(SCALED_CONTENT_IMG_WIDTH, content_scaled_height))
+	
+style_image = cv2.imread(style_img_path)
+style_image = cv2.cvtColor(style_image, cv2.COLOR_BGR2RGB)	
+style_scale =  content_image.shape[0] / style_image.shape[0]
+style_scaled_width =  int(style_image.shape[1] * style_scale)
+style_image = cv2.resize(style_image, 
+				(style_scaled_width, content_scaled_height))
+
 # Draw content and style images
-st.image([content_image, style_img_path],  
-		 caption = ['Content Image', 'Style Image'], 
-		 width = 400)
+st.image([content_image, style_image],  
+		 caption=['Content Image', 'Style Image'], 
+		 width=None)
 
 # Create options dictionary for predict function
 options = dict()
@@ -54,7 +73,7 @@ options['result_dir'] = None
 # Predict and display result
 predicted_img = predict(options, write_result=False)
 st.write("Result image")
-st.image(predicted_img[:, :, ::-1], width=600)
+st.image(predicted_img[:, :, ::-1], width=500)
 
 
 # Download results
