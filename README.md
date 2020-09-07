@@ -83,5 +83,6 @@ For running locally:<br>
 streamlit run streamlit_app.py
 ```
 
-![](https://raw.githubusercontent.com/Gooogr/Fast-Neural-Style-Transfer/streamlit_webapp/streamlit_demo.gif)
+![](https://github.com/Gooogr/Fast_Neural_Style_Transfer/raw/master/streamlit_demo.gif)
+
 
