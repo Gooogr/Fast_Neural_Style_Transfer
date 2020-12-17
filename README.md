@@ -86,3 +86,10 @@ streamlit run streamlit_app.py
 ![](https://github.com/Gooogr/Fast_Neural_Style_Transfer/raw/master/streamlit_demo.gif)
 
 
+### Android app 
+
+Kivy links:
+* https://github.com/kivy/kivy
+* https://python-scripts.com/kivy-android-ios-exe#apk-andr
+
+
