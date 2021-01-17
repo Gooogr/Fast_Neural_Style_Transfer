@@ -85,4 +85,5 @@ streamlit run streamlit_app.py
 
 ![](https://github.com/Gooogr/Fast_Neural_Style_Transfer/raw/master/streamlit_demo.gif)
 
-
+### License
+[MIT](LICENSE) © Grigoriy Gusarov
