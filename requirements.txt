@@ -4,4 +4,5 @@ numpy==1.18.4
 Pillow==8.1.2
 tensorflow==1.15.2
 Keras==2.2.5
+streamlit>0.66
 
